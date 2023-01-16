@@ -1,8 +1,8 @@
 import React from "react"
-import { Emitter } from "mitt"
+import { Emitter, EventType } from "mitt"
 
 export interface MittContextType {
-  emitter: Emitter
+  emitter: Emitter<Record<EventType, unknown>>
 }
 
 export declare const MittProvider: React.FC

@@ -1,15 +1,16 @@
 import React, { useContext } from "react"
-import mitt, { Emitter } from "mitt"
-
-const emitter: Emitter = mitt()
+import mitt, { Emitter, EventType } from "mitt"
+const emitter: Emitter<Record<EventType, unknown>> = mitt()
 
 export interface MittContextType {
-  emitter: Emitter
+  emitter: Emitter<Record<EventType, unknown>>
 }
 
 const MittContext = React.createContext<MittContextType>({ emitter })
-
-export const MittProvider: React.FC = ({ children }) => {
+type MittProps = {
+  children: React.ReactNode
+}
+export const MittProvider: React.FC = ({ children }: MittProps) => {
   return (
     <MittContext.Provider value={{ emitter }}>{children}</MittContext.Provider>
   )
