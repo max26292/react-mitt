@@ -5,5 +5,5 @@ export interface MittContextType {
   emitter: Emitter<Record<EventType, unknown>>
 }
 
-export declare const MittProvider: React.FC
+export declare const MittProvider
 export declare const useMitt: () => MittContextType
